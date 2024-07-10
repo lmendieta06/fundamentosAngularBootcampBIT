@@ -1,0 +1,98 @@
+<h1>FUNDAMENTOS DE ANGULAR</h1>
+
+<!-- PROPIEDADES E INTERPOLACION -->
+<section>
+  <h2>PROPIEDADES E INTERPOLACION</h2>
+  <p>Las propiedades son variables que nosotros estructuramos en el TS</p>
+  <!-- La interpolacion de variables se hace con {{}} -->
+  <p>La interpolacion es el uso de esas variables en nuestro HTML de forma automatica</p>
+
+  <!-- EJEMPLO DE USO -->
+
+  <p>Este es un bootcamp con la especialista {{especialista}},
+    el bootcamp tiene {{horasBootcamp}} horas 
+  </p>
+
+  <h3>CONTENIDO BOOTCAMP</h3>
+
+  <ul>
+    <li>Primero {{contenidoBootcamp.tecnologia1}}</li>
+    <li>Segundo {{contenidoBootcamp.tecnologia2}}</li>
+    <li>Tercero {{contenidoBootcamp.tecnologia3}}</li>
+    <li>Cuarto {{contenidoBootcamp.tecnologia4}}</li>
+    <li>Actualmente {{contenidoBootcamp.tecnologia5}}</li>
+  </ul>
+
+  <p>El producto que usted busca de nombre {{objetoProducto.nombre}},
+    tiene una cantidad de {{objetoProducto.cantidad}} por paquete,
+    se encuentra vendido actualmente.
+  </p>
+
+</section>
+
+<hr>
+
+
+<!-- ENLACE DE DATOS -->
+<section>
+  <h2>ENLACE DE DATOS</h2>
+  <h3>1. MANEJO DE EVENTOS:</h3>
+  <p>Acciones que podemos ejecutar cuando hacemos
+    algo en el navegador
+  </p>
+
+  <h3>DARLE CLICK A UN BOTON</h3>
+  <button type="button" (click)="saludo()">CLICK ME</button>
+
+  <!-- CLASES EN CSS -  CAMBIOS DE DISEÑO -->
+  <h2>USO DE CLASES DE CSS</h2>
+  <div class="caja {{colorFondo}}" (click)="manejarClick()" (mouseover)="manejarMouseOver()" (mouseout)="manejarMouseOut()">
+    holaaaa {{colorFondo}}
+  </div>
+
+  <h3>2. ENLACE DE ATRIBUTOS</h3>
+  <p>VAMOS A MOSTRAR O A HACER CIERTAS COSAS DEPENDIENDO DE SI ESTA LOGUEADO O NO</p>
+  <p>Esto se usa cuando necesiatamos manipular
+    atributos de nuestro HTML en forma condiconal
+  </p>
+
+  <button type="button" [disabled]="!isLogged">COMPRAR PRODUCTOS</button>
+</section>
+
+<hr>
+
+<!-- CONTROL DE FLUJO -->
+
+<section>
+  <h2>CONTROL DE FLUJO</h2>
+  <p>CONDICIONALES - CICLOS</p>
+
+  <h3>CONDICIONALES</h3>
+  <!-- Esto casi no se usa porque afecta rendimiento -->
+  @if (isDelete) {
+    <button type="button">Borrar Producto</button>
+  }@else {
+    <button type="button">Modificar Producto</button>
+  }
+
+  <!-- USAR DIRECTIVAS CON COMMON MODULE -->
+
+  <!-- DIRECTIVA ngIf -->
+
+  <h3>DIRECTIVA ngIf - Condicional</h3>
+  <button type="button" (click)="cambioShowed()">CAMBIO SHOWED</button>
+  <div *ngIf="isShowed; else noDiv">
+    <p>Este parrafo se muestra porque isShowed es verdadero</p>
+  </div>
+
+  <ng-template #noDiv>
+    <p>Este parrafo se muestra porque isShowed es falso</p>
+  </ng-template>
+
+  <h3>CICLO FOR - DIRECTIVA ngFor</h3>
+  <p>Los productos en stock son: </p>
+
+  <ol>
+    <li  *ngFor="let producto of productos">{{producto}}</li>
+  </ol>
+</section>
