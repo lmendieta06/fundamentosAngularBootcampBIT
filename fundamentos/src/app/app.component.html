@@ -36,6 +36,7 @@
 <!-- ENLACE DE DATOS -->
 <section>
   <h2>ENLACE DE DATOS</h2>
+  <!-- MANEJO DE EVENTOS -->
   <h3>1. MANEJO DE EVENTOS:</h3>
   <p>Acciones que podemos ejecutar cuando hacemos
     algo en el navegador
@@ -51,6 +52,7 @@
   </div>
 
   <h3>2. ENLACE DE ATRIBUTOS</h3>
+  <!-- ENLACE DE ATRIBUTOS -->
   <p>VAMOS A MOSTRAR O A HACER CIERTAS COSAS DEPENDIENDO DE SI ESTA LOGUEADO O NO</p>
   <p>Esto se usa cuando necesiatamos manipular
     atributos de nuestro HTML en forma condiconal
@@ -61,7 +63,7 @@
 
 <hr>
 
-<!-- CONTROL DE FLUJO -->
+<!-- CONTROL DE FLUJO - ESTRUCTURAS DE CONTROL -->
 
 <section>
   <h2>CONTROL DE FLUJO</h2>
@@ -93,6 +95,72 @@
   <p>Los productos en stock son: </p>
 
   <ol>
-    <li  *ngFor="let producto of productos">{{producto}}</li>
+    <li class="caja"  *ngFor="let producto of productos">{{producto}}</li>
   </ol>
 </section>
+
+<!-- MANEJO DE FORMULARIOS -->
+<hr>
+
+<section>
+  <h1>FORMULARIOS DE ANGULAR</h1>
+  <h2>- FORMULARIOS BASADOS EN PLANTILLA (FORMULARIOS DRIVEN-TEMPLATES): </h2>
+  <p>No es optimo, rinde mas lento</p>
+  <!-- 1. Se debe importar una dependencia FormsModule en app.ts-->
+  <!-- 2. Crear formulario -->
+
+  <div>
+    <form (ngSubmit)="manejarEnvio()">
+      <label>
+        Color Favorito
+      </label>
+      <input type="text" name="colorFav" [(ngModel)]="colorFavorito">
+      <br>
+      <br>
+
+      <label>
+        Nombre
+      </label>
+      <input type="text" name="nombre" [(ngModel)]="nombre">
+      <br>
+      <br>
+
+      <button type="submit">Enviar informacion</button>
+    </form>
+  </div>
+  <h2>- FORMULARIOS REACTIVOS: </h2>
+  <p>Optimiza, mejora el rendimiento</p>
+  <p>CON REACTIVO SE REFIERE A LA VELOCIDAD Y CANTIDAD DE 
+    RECURSOS QUE REQUIERE PARA HACER FUNCIONAR EL LUGAR
+  </p>
+  <p>Sale preparado para envio a base de datos, entrega la informacion
+    en forma de objeto
+  </p>
+  <!-- Se debe importar ReactiveFormsModule, FormGroup, FormControl-->
+  <!-- Se trabaja con grupos y controles -->
+   <!-- ngSubmit es un evento -->
+  <div>
+    <form [formGroup]="login" (ngSubmit)="manejarEnvioLogin()">
+      <label>
+        Correo Electronico
+      </label>
+      <input type="email" name="correo" formControlName="correo"> 
+      <br>
+      <br>
+
+      <label>
+        Contraseña
+      </label>
+      <input type="password" name="contrasena" formControlName="contrasena">
+      <br>
+      <br>
+
+      <button type="submit">Enviar informacion</button>
+    </form>
+  </div>
+
+
+
+
+</section>
+
