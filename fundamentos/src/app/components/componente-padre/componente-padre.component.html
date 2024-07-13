@@ -5,5 +5,22 @@
 
     <!-- PASAR INFORMACION AL HIJO -->
      <!-- [ENVIO DE INFO A] - (RECIBIR INFO DE) - [(ENVIO A Y RECIBE DE)] -->
-    <app-componente-hijo [textoRecibir]="textoEnviar" [colorFavoritoPadre]="colorFavorito" [trabajosPadre]="trabajos" [infoPadre]="infoPersonal"></app-componente-hijo>
+
+    <!-- ENTONCES CUANDO EL HIJO EMITE INFORMACION, EL PADRE LA DEBE ESCUCHAR -->
+    <app-componente-hijo [textoRecibir]="textoEnviar" [colorFavoritoPadre]="colorFavorito" [trabajosPadre]="trabajos" [infoPadre]="infoPersonal" (eventoEnviarNombre)="recibirNombre($event)"></app-componente-hijo>
+</section>
+
+<hr>
+
+<section>
+    <h2>ESTA ES LA INFORMACION QUE EL HIJO ENVIO</h2>
+
+    <p>Este es el nombre enviado {{nombreRecibido}}</p>
+
+    <h4>Todos los nombres guardados</h4>
+    <ul>
+        <li *ngFor="let nombre of nombresRecibidos">
+            {{nombre}}
+        </li>
+    </ul>
 </section>
