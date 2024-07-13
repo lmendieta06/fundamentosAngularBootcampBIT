@@ -7,11 +7,13 @@ import { FormsModule } from '@angular/forms';
 // Para formularios reactivos
 // Grupos y controles
 import { ReactiveFormsModule, FormGroup, FormControl } from '@angular/forms';
+// IMPORTAR COMPONENTE PADRE
+import { ComponentePadreComponent } from './components/componente-padre/componente-padre.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, FormsModule, ReactiveFormsModule],
+  imports: [RouterOutlet, CommonModule, FormsModule, ReactiveFormsModule, ComponentePadreComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

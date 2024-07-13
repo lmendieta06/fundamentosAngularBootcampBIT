@@ -1,0 +1,9 @@
+<p>HOLAAAA, SOY EL COMPONENTE PADRE</p>
+
+<section>
+    <h2>ACA VISUALIZAMOS NUESTRO COMPONENTE HIJO</h2>
+
+    <!-- PASAR INFORMACION AL HIJO -->
+     <!-- [ENVIO DE INFO A] - (RECIBIR INFO DE) - [(ENVIO A Y RECIBE DE)] -->
+    <app-componente-hijo [textoRecibir]="textoEnviar" [colorFavoritoPadre]="colorFavorito" [trabajosPadre]="trabajos" [infoPadre]="infoPersonal"></app-componente-hijo>
+</section>
